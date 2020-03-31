@@ -1,7 +1,9 @@
-%Convolución lineal y circular utilizando la DFT
+%Convolucin lineal y circular utilizando la DFT?
 
 %imagen original
 original = imread('lena.png');
+% original = rgb2gray(original);
+% original = imresize(original,[512 512]);
 figure('Name','Imagen Original');
 imshow(original);
 title('Original');
@@ -70,15 +72,15 @@ fftOriginal = fft2(double(original));
 shiftedFFT = fftshift(fftOriginal);
 
 %Obteniendo DFT del filtro 7x7
-fftFiltro7 = fft2(double(filtro7));
+fftFiltro7 = fft2(double(filtro7),505,505);
 shiftedFFT7 = fftshift(fftFiltro7);
 
 %Obteniendo DFT del filtro 9x9
-fftFiltro9 = fft2(double(filtro9));
+fftFiltro9 = fft2(double(filtro9),503,503);
 shiftedFFT9 = fftshift(fftFiltro9);
 
 %Obteniendo DFT del filtro 11x11
-fftFiltro11 = fft2(double(filtro11));
+fftFiltro11 = fft2(double(filtro11),501,501);
 shiftedFFT11 = fftshift(fftFiltro11);
 
 %Despliegue de DFT de la imagen original y de los filtros
